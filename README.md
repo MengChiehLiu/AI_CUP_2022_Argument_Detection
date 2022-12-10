@@ -1,28 +1,32 @@
-# AI_CUP_2022
-
-## base line
-0.729603  
-
-## Structure  
-### Preprocess  
-1. retain longest answer for every id  
-2. sentencize with spacy  
-3. label target sentence with LCS rate above 50%  
-4. extractive summarization for string length above 2000  
-
-### Model
-We put three string into one shared bert encoder and get their pooler output,  concat their combination and connect the output to differnnt tasks.
-
-1. input string  
-sentence, q(summarized), r(summarized)  
-2. input features  
-q_length, r_length, is_q  
-3. output  
-label, s  
+# AI CUP 2022: Argument Detection
 
 
-## To be done
-1. Fine-tune model  
-architecture: q+r encoder?  
-batch size: smaller batch size? (now 16)  
-loss weight: increase weight on main task? (now 1.5)
+## Task Description
+
+### Input data
+* q: An English discourse.
+* r: An English text that responds to q.
+* s: The discussion relationship between r and q.
+### Output data
+* 𝒒′ & 𝒓′: Subsequences of q and r respectively, and 𝑞′ and 𝑟′provides key information, enough to judge the relationship between q and r presenting s.
+
+## Introduction
+
+* We redefine this task into an **extractive summarization** task, which can also be regarded as a **sentence classification** task. By calculating scores for each sentence, we decompose sentences and recompose sentences with high scores into the arguments.
+
+
+## Model Structure
+* We concat sequence with q and r into two sequences. For the maximum token length for BERT input is 512, we summarized q and r into 450 tokens at most first, which is made by using pretrained **bert-extractive-summarization** library.
+After that, we feed the sequences into BERTs and get thier pooler outputs **sq** and **sr**, concating them with their inner dot production **sq*sr**. 
+Finally, we connect the concated result with dense layers and get the score. Besides the main task for sequence classification, we also design a **co-task** for s(relationship) classification to help.
+
+![](https://i.imgur.com/k6wxjup.jpg)
+
+
+## Model Path
+https://drive.google.com/file/d/1-QVxqGodzD0FEQNVOqDsWsgHfu9fkHwO/view?usp=share_link
+
+
+## Final Scores
+* Public Score: 0.815819	
+* Private Score: 0.867684

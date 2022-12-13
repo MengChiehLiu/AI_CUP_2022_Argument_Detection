@@ -21,7 +21,7 @@ See more task description [here](https://github.com/MengChiehLiu/AI_CUP_2022_Arg
 
 ## Core Model Structure
 
-![Core Model Structure](https://github.com/MengChiehLiu/AI_CUP_2022/blob/main/data/images/data\images\model_structure.jpg)
+![Core Model Structure](https://github.com/MengChiehLiu/AI_CUP_2022_Argument_Detection/blob/main/data/images/model_structure.jpg)
 
 * We concat sequence with q and r into two sequences. For the maximum token length for BERT input is 512, we summarized q and r into 450 tokens at most first, which is made by using pretrained **bert-extractive-summarization** library.
 After that, we feed the sequences into BERTs and get thier pooler outputs **sq** and **sr**, concating them with their inner dot production **sq*sr**. 

@@ -19,13 +19,13 @@ See more task description [here](https://github.com/MengChiehLiu/AI_CUP_2022_Arg
 * We redefine this task into an **extractive summarization** task, which can also be regarded as a **sentence classification** task. By calculating scores for each sentence, we decompose sentences and recompose sentences with high scores into the arguments.
 
 
-## Model Structure
+## Core Model Structure
+
+![Core Model Structure](https://github.com/MengChiehLiu/AI_CUP_2022/blob/main/data/images/data\images\model_structure.jpg)
+
 * We concat sequence with q and r into two sequences. For the maximum token length for BERT input is 512, we summarized q and r into 450 tokens at most first, which is made by using pretrained **bert-extractive-summarization** library.
 After that, we feed the sequences into BERTs and get thier pooler outputs **sq** and **sr**, concating them with their inner dot production **sq*sr**. 
 Finally, we connect the concated result with dense layers and get the score. Besides the main task for sequence classification, we also design a **co-task** for s(relationship) classification to help.
-
-![Core Model Structure](https://github.com/MengChiehLiu/AI_CUP_2022/blob/main/data/images/data_structure.png)
-
 
 
 

@@ -1,7 +1,7 @@
 # AI CUP 2022: Argument Detection
 
-[GitHub link](https://github.com/MengChiehLiu/AI_CUP_2022)
-
+* [GitHub link](https://github.com/MengChiehLiu/AI_CUP_2022)
+* [AI CUP info](https://tbrain.trendmicro.com.tw/Competitions/Details/26)
 
 ## Task Description
 
@@ -46,7 +46,7 @@ https://drive.google.com/file/d/1-QVxqGodzD0FEQNVOqDsWsgHfu9fkHwO/view?usp=share
 (Remember to change all file paths into yours!!!)
 
 1. Download train data [here](https://github.com/MengChiehLiu/AI_CUP_2022_Argument_Detection/blob/main/data/dataset%20and%20information/Batch_answers%20-%20train_data%20(no-blank).csv).
-2. Run [utilities/preprocessing.ipynb](https://github.com/MengChiehLiu/AI_CUP_2022_Argument_Detection/blob/main/utilities/preprocessing.ipynb) for data preprocessing. You may also just use processed data [here](https://github.com/MengChiehLiu/AI_CUP_2022_Argument_Detection/tree/main/data/processed%20data%20(v8)).
+2. Run [utils/preprocessing.ipynb](https://github.com/MengChiehLiu/AI_CUP_2022_Argument_Detection/blob/main/utils/preprocessing.ipynb) for data preprocessing. You may also just use processed data [here](https://github.com/MengChiehLiu/AI_CUP_2022_Argument_Detection/tree/main/data/processed%20data%20(v8)).
 6. Run [train.ipynb](https://github.com/MengChiehLiu/AI_CUP_2022_Argument_Detection/blob/main/train.ipynb) to start training.
 
 
@@ -59,5 +59,7 @@ https://drive.google.com/file/d/1-QVxqGodzD0FEQNVOqDsWsgHfu9fkHwO/view?usp=share
 3. Run [predict.ipynb](https://github.com/MengChiehLiu/AI_CUP_2022_Argument_Detection/blob/main/predict.ipynb) to start predicting.
 
 ## Final Scores
+Our best answer is [here](https://github.com/MengChiehLiu/AI_CUP_2022_Argument_Detection/blob/main/data/answer/model_v8_old_threshold25.csv).
+
 * Public Score: 0.815819	
 * Private Score: 0.867684
